@@ -1,0 +1,223 @@
+<!-- Juan Aguirre -->
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet"> 
+<style>
+
+body{
+  
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align:center;  
+}
+
+
+body{
+  
+  background-color:	#F0E68C;
+}
+
+h1{
+  color:white;
+  font-size: 3em;
+  -webkit-text-stroke: 2px black;
+   text-shadow: 2px 4px 5px  black;  
+  font-weight:bold; 
+}
+
+#calc{
+  
+  
+  padding: 25px 5px 0px 5px;
+  height: 440px;
+  width: 280px;
+  background-color: rgb(21,21,18);
+  border-radius: 8px;
+  border-style:thin;
+  box-shadow: 7px 2px 50px 5px black;
+  
+  margin:45px auto;
+  }
+
+/*#display{
+  margin-bottom:20px;
+  height:30px;
+  width: 10em;
+  border:1px solid black;
+  border-radius:5px;
+  box-shadow: 0px 0px 1px black;
+  text-align: right;
+  font: 20px bold;
+  padding:10px;
+} */
+
+#display{
+  height: 70px;
+  width: 240px;
+  text-align: right;
+  background-color: #335238;
+  color: red;
+  border-radius: 3px;
+  padding: 20px 2px;
+  margin: auto auto 15px auto;
+  font-size: 25px;
+  font-family: Orbitron, sans-serif;
+   border-width:0px;
+}
+
+
+#keys {
+  outline: none !important;
+  border: none;
+  font-size: 22px;
+  height: 52px;
+  width: 55px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  background-color: black;
+  color: #F0E68C;
+}
+
+
+/*#keys {
+  width: 41px;
+  height:35px;
+  margin:4px;
+  box-shadow: 0px 0px 2px 1px black;
+  border-radius:2px;
+  outline: none
+} */
+
+/*#equal{
+  width: 92px;
+  height:35px;
+  margin:4px;
+  box-shadow: 0px 0px 2px 1px black;
+  border-radius:2px;
+  outline: none
+} */
+
+
+#equal{
+  outline: none !important;
+  border: none;
+  font-size: 22px;
+  height: 52px;
+  width: 55px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  background-color: black;
+  color: #F0E68C;
+  
+}
+
+
+h3{
+  color:#fff;
+  margin-top:2px;
+}
+
+
+
+#keys:hover {
+  opacity: 0.5;
+  
+}
+
+
+
+.eq:hover {
+  opacity: 0.5;
+  
+}
+
+
+
+
+</style>
+
+
+
+
+</head>
+<body>
+  
+  
+
+  
+  <h1> Javascript Calculator </h1>
+  <div id='calc'>
+    <form>
+      <input type='text' id='display' disabled>
+      <br>
+      <input type='button' value='C' id='keys' onclick='addtoscreen("c")'>
+      <input type='button' value='CE' id='keys' onclick='backspace()'>
+      <input type='button' value='x^2' id='keys' onclick='power()'>
+      <input type='button' value='+' id='keys' onclick='addtoscreen("+")'>
+      <br>
+      <input type='button' value='9' id='keys' onclick='addtoscreen("9")'>
+      <input type='button' value='8' id='keys' onclick='addtoscreen("8")'>
+      <input type='button' value='7' id='keys' onclick='addtoscreen("7")'>
+      <input type='button' value='-' id='keys' onclick='addtoscreen("-")'>
+      <br>
+      <input type='button' value='6' id='keys' onclick='addtoscreen("6")'>
+      <input type='button' value='5' id='keys' onclick='addtoscreen("5")'>
+      <input type='button' value='4' id='keys' onclick='addtoscreen("4")'>
+      <input type='button' value='*' id='keys' onclick='addtoscreen("*")'>
+      <br>
+      <input type='button' value='3' id='keys' onclick='addtoscreen("3")'>
+      <input type='button' value='2' id='keys' onclick='addtoscreen("2")'>
+      <input type='button' value='1' id='keys' onclick='addtoscreen("1")'>
+      <input type='button' value='/' id='keys' onclick='addtoscreen("/")'>
+      <br>
+      <input type='button' value='0' id='keys' onclick='addtoscreen("0")'>
+      <input type='button' value='.' id='keys' onclick='addtoscreen(".")'>
+      <input class = 'eq' type='button' value='=' id='equal' onclick='answer()'>
+
+    </form>
+    <h3>JS Calculator</h3>
+  </div>
+</body>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+
+<script >var box = document.getElementById('display');
+
+function addtoscreen(x){
+  box.value+=x;
+  if(x==='c'){
+    box.value='';
+  }
+}
+
+function answer(){
+  x=box.value
+  x=eval(x);
+  box.value=x;
+}
+
+function power(){
+  x=box.value;
+  x=eval(x*x);
+  box.value=x;
+}
+
+function backspace(){
+  var num = box.value;
+  var len = num.length-1;
+  var newNum = num.substring(0,len);
+  box.value  = newNum;
+}
+
+
+
+</script>
+</body>
+</html>
